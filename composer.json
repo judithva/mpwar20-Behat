@@ -1,0 +1,15 @@
+{
+    "name": "lasalle/chupi_project",
+    "description": "El proyecto más chupi guay de la historia",
+    "require": {
+        "php": "^7.2",
+        "kevinlebrun/colors.php": "^1.0",
+        "phpunit/phpunit": "^9.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Practica4\\": "src/",
+            "Practica4Test\\": "test/"
+        }
+    }
+}

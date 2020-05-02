@@ -1,0 +1,10 @@
+version: '3.5'
+
+services:
+  php-cli:
+    image: cblancog/mpwar:7.3-dc
+    volumes:
+      - type: bind
+        source: ./
+        target: /app
+        read_only: false

@@ -10,6 +10,6 @@ class ColorRepositoryDummy implements ColorRepository
 {
     public function all(): array
     {
-        return;
+        return [];
     }
 }

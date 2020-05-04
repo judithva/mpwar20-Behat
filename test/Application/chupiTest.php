@@ -66,6 +66,8 @@ class chupiTest extends TestCase
         $colorRepository = new ColorRepositoryDummy();
         $randomColorSearch = new RandomColorSearcher($colorRepository);
 
+        $randomColorSearch();
+
 
     }
 }

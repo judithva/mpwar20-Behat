@@ -8,7 +8,10 @@ use PHPUnit\Framework\TestCase;
 use Practica4\Module\Color\Application\RandomColorExcept;
 use Practica4\Module\Color\Domain\RandomColorSearcher;
 use Practica4\Module\Color\Infrastructure\InMemoryColorRepository;
+use Practica4\Module\CoolWord\Domain\RandomCoolWordSearcher;
+use Practica4\Module\CoolWord\Infrastructure\InMemoryCoolWordRepository;
 use Practica4Test\Infrastructure\ColorRepositoryStub;
+use Practica4Test\Infrastructure\CoolWordRepositoryStub;
 
 class chupiTest extends TestCase
 {
@@ -37,5 +40,17 @@ class chupiTest extends TestCase
 
         $this->assertIsCallable($randomColorSearch, 'No es una función callable válida');
         $this->assertTrue(in_array($fgColor(), $bgColorExpected->all()), 'No es un foreground-color válido');
+    }
+
+    /**
+     * @test
+     */
+    public function shouldbeWordValid()
+    {
+        $wordRepository = new CoolWordRepositoryStub();
+        $randomWordSearch = new RandomCoolWordSearcher($wordRepository);
+        $wordExpected = new InMemoryCoolWordRepository();
+
+        $this->assertEquals(in_array($randomWordSearch(), $wordExpected->all()), true,'No son palabras iguales');
     }
 }

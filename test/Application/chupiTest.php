@@ -6,10 +6,12 @@ namespace Practica4Test\Application;
 
 use PHPUnit\Framework\TestCase;
 use Practica4\Module\Color\Application\RandomColorExcept;
+use Practica4\Module\Color\Domain\Exceptions\EmptyColorException;
 use Practica4\Module\Color\Domain\RandomColorSearcher;
 use Practica4\Module\Color\Infrastructure\InMemoryColorRepository;
 use Practica4\Module\CoolWord\Domain\RandomCoolWordSearcher;
 use Practica4\Module\CoolWord\Infrastructure\InMemoryCoolWordRepository;
+use Practica4Test\Infrastructure\ColorRepositoryDummy;
 use Practica4Test\Infrastructure\ColorRepositoryStub;
 use Practica4Test\Infrastructure\CoolWordRepositoryStub;
 
@@ -52,5 +54,18 @@ class chupiTest extends TestCase
         $wordExpected = new InMemoryCoolWordRepository();
 
         $this->assertEquals(in_array($randomWordSearch(), $wordExpected->all()), true,'No son palabras iguales');
+    }
+
+    /**
+     * @test
+     */
+    public function shouldTrowExceptionOnEmptyColorsInMemory()
+    {
+        $this->expectException(EmptyColorException::class);
+
+        $colorRepository = new ColorRepositoryDummy();
+        $randomColorSearch = new RandomColorSearcher($colorRepository);
+
+
     }
 }

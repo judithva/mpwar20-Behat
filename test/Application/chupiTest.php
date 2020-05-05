@@ -38,21 +38,6 @@ class chupiTest extends TestCase
     /**
      * @test
      */
-   /*public function shouldbeFgColorValid()
-    {
-         $colorRepository = new ColorRepositoryStub();
-         $randomColorSearch = new RandomColorSearcher($colorRepository);
-         $bgColorExpected = new InMemoryColorRepository();
-         $randomColorSearchExpected = new RandomColorSearcher($bgColorExpected);
-         $fgColor = new RandomColorExcept($randomColorSearch(),$randomColorSearchExpected);
-
-         $this->assertIsCallable($randomColorSearch, 'No es una función callable válida');
-         $this->assertTrue(in_array($fgColor(), $bgColorExpected->all()), 'No es un foreground-color válido');
-    }*/
-
-    /**
-     * @test
-     */
     public function shouldbeWordValid()
     {
         $wordRepository = new CoolWordRepositoryStub();

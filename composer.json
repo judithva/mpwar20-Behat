@@ -8,7 +8,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Practica4\\": "src/",
+            "LaSalle\\ChupiProject\\": "src/",
             "Practica4Test\\": "test/"
         }
     }

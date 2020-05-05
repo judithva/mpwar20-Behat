@@ -1,8 +1,8 @@
 <?php
 
-namespace Practica4\Module\Color\Infrastructure;
+namespace LaSalle\ChupiProject\Module\Color\Infrastructure;
 
-use Practica4\Module\Color\Domain\ColorRepository;
+use LaSalle\ChupiProject\Module\Color\Domain\ColorRepository;
 
 final class InMemoryColorRepository implements ColorRepository
 {

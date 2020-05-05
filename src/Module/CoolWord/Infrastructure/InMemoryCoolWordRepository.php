@@ -1,8 +1,8 @@
 <?php
 
-namespace Practica4\Module\CoolWord\Infrastructure;
+namespace LaSalle\ChupiProject\Module\CoolWord\Infrastructure;
 
-use Practica4\Module\CoolWord\Domain\CoolWordRepository;
+use LaSalle\ChupiProject\Module\CoolWord\Domain\CoolWordRepository;
 
 final class InMemoryCoolWordRepository implements CoolWordRepository
 {

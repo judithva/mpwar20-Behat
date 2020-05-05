@@ -1,9 +1,8 @@
 <?php
 
-namespace Practica4\Module\Color\Domain;
+namespace LaSalle\ChupiProject\Module\Color\Domain;
 
-use mysql_xdevapi\Exception;
-use Practica4\Module\Color\Domain\Exceptions\EmptyColorException;
+use LaSalle\ChupiProject\Module\Color\Domain\Exceptions\EmptyColorException;
 
 final class RandomColorSearcher
 {
@@ -18,7 +17,7 @@ final class RandomColorSearcher
     {
         $colors = $this->repository->all();
 
-        if(empty($color))
+        if(empty($colors))
         {
             throw new EmptyColorException();
         }

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Practica4\Module\Color\Domain\Exceptions;
+namespace LaSalle\ChupiProject\Module\Color\Domain\Exceptions;
 
 
 use DomainException;

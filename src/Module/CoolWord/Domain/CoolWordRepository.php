@@ -1,6 +1,6 @@
 <?php
 
-namespace Practica4\Module\CoolWord\Domain;
+namespace LaSalle\ChupiProject\Module\CoolWord\Domain;
 
 interface CoolWordRepository
 {

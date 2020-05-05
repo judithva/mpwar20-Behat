@@ -1,6 +1,6 @@
 <?php
 
-namespace Practica4\Module\Color\Domain;
+namespace LaSalle\ChupiProject\Module\Color\Domain;
 
 interface  ColorRepository
 {

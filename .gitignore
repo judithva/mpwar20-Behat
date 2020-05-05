@@ -3,4 +3,3 @@ vendor
 phpunit*
 .idea/
 /*.lock
-chupi.php

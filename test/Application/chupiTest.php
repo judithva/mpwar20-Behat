@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Practica4Test\Application;
 
 
+use LaSalle\ChupiProject\Module\Color\Domain\Exceptions\EmptyCoolWordException;
 use PHPUnit\Framework\TestCase;
 use LaSalle\ChupiProject\Module\Color\Domain\Exceptions\EmptyColorException;
 use LaSalle\ChupiProject\Module\Color\Domain\RandomColorSearcher;
@@ -12,7 +13,9 @@ use LaSalle\ChupiProject\Module\Color\Infrastructure\InMemoryColorRepository;
 use LaSalle\ChupiProject\Module\CoolWord\Domain\RandomCoolWordSearcher;
 use LaSalle\ChupiProject\Module\CoolWord\Infrastructure\InMemoryCoolWordRepository;
 use Practica4Test\Infrastructure\ColorRepositoryDummy;
+use Practica4Test\Infrastructure\ColorRepositoryEmptyStub;
 use Practica4Test\Infrastructure\ColorRepositoryStub;
+use Practica4Test\Infrastructure\CoolWordRepositoryEmptyStub;
 use Practica4Test\Infrastructure\CoolWordRepositoryStub;
 
 class chupiTest extends TestCase
@@ -35,7 +38,7 @@ class chupiTest extends TestCase
     /**
      * @test
      */
-   /* public function shouldbeFgColorValid()
+   /*public function shouldbeFgColorValid()
     {
          $colorRepository = new ColorRepositoryStub();
          $randomColorSearch = new RandomColorSearcher($colorRepository);
@@ -70,9 +73,22 @@ class chupiTest extends TestCase
     {
         $this->expectException(EmptyColorException::class);
 
-        $colorRepository = new ColorRepositoryDummy();
+        $colorRepository = new ColorRepositoryEmptyStub();
         $randomColorSearch = new RandomColorSearcher($colorRepository);
 
         $randomColorSearch();
+    }
+
+    /**
+     * @test
+     */
+    public function shouldTrowExceptionOnEmptyCoolWordInMemory()
+    {
+        $this->expectException(EmptyCoolWordException::class);
+
+        $coolWordRepository = new CoolWordRepositoryEmptyStub();
+        $randomCoolWordSearch = new RandomCoolWordSearcher($coolWordRepository);
+
+        $randomCoolWordSearch();
     }
 }

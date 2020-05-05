@@ -2,6 +2,8 @@
 
 namespace LaSalle\ChupiProject\Module\CoolWord\Domain;
 
+use LaSalle\ChupiProject\Module\Color\Domain\Exceptions\EmptyCoolWordException;
+
 final class RandomCoolWordSearcher
 {
     private $repository;
@@ -14,6 +16,10 @@ final class RandomCoolWordSearcher
     public function __invoke(): string
     {
         $words = $this->repository->all();
+
+        if (empty($words)) {
+            throw new EmptyCoolWordException();
+        }
 
         return $words[mt_rand(0, count($words) - 1)];
     }

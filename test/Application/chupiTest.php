@@ -12,9 +12,10 @@ use LaSalle\ChupiProject\Module\Color\Domain\RandomColorSearcher;
 use LaSalle\ChupiProject\Module\Color\Infrastructure\InMemoryColorRepository;
 use LaSalle\ChupiProject\Module\CoolWord\Domain\RandomCoolWordSearcher;
 use LaSalle\ChupiProject\Module\CoolWord\Infrastructure\InMemoryCoolWordRepository;
-use Practica4Test\Infrastructure\ColorRepositoryDummy;
 use Practica4Test\Infrastructure\ColorRepositoryEmptyStub;
 use Practica4Test\Infrastructure\ColorRepositoryStub;
+use Practica4Test\Infrastructure\CoolWordRepositoryInvalidSpy;
+use Practica4Test\Infrastructure\CoolWordRepositoryValidSpy;
 use Practica4Test\Infrastructure\CoolWordRepositoryEmptyStub;
 use Practica4Test\Infrastructure\CoolWordRepositoryStub;
 
@@ -75,5 +76,31 @@ class chupiTest extends TestCase
         $randomCoolWordSearch = new RandomCoolWordSearcher($coolWordRepository);
 
         $randomCoolWordSearch();
+    }
+
+    /**
+     * @test
+     */
+    public function shouldbeCoolWordValidSpy()
+    {
+        $wordRepository = new CoolWordRepositoryValidSpy();
+        $randomWordSearch = new RandomCoolWordSearcher($wordRepository);
+
+        $this->assertEquals('Holiiiiii', $randomWordSearch(), 'CoolWord diferente');
+        $this->assertTrue($wordRepository->allWasCalled(),'No se llamó el allWasCalled');
+    }
+
+    /**
+     * @test
+     */
+    public function shouldThrowExceptionCoolWordWhenEmptyInvalidSpy()
+    {
+        $this->expectException(EmptyCoolWordException::class);
+
+        $wordRepository = new CoolWordRepositoryInvalidSpy();
+        $randomWordSearch = new RandomCoolWordSearcher($wordRepository);
+
+        $this->assertEquals('', $randomWordSearch(), 'Existe un CoolWord');
+        $this->assertFalse($wordRepository->allWasCalled(),'Se llamó el allWasCalled');
     }
 }

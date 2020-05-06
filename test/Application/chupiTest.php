@@ -13,7 +13,9 @@ use LaSalle\ChupiProject\Module\Color\Infrastructure\InMemoryColorRepository;
 use LaSalle\ChupiProject\Module\CoolWord\Domain\RandomCoolWordSearcher;
 use LaSalle\ChupiProject\Module\CoolWord\Infrastructure\InMemoryCoolWordRepository;
 use Practica4Test\Infrastructure\ColorRepositoryEmptyStub;
+use Practica4Test\Infrastructure\ColorRepositoryInvalidSpy;
 use Practica4Test\Infrastructure\ColorRepositoryStub;
+use Practica4Test\Infrastructure\ColorRepositoryValidSpy;
 use Practica4Test\Infrastructure\CoolWordRepositoryInvalidSpy;
 use Practica4Test\Infrastructure\CoolWordRepositoryValidSpy;
 use Practica4Test\Infrastructure\CoolWordRepositoryEmptyStub;
@@ -103,4 +105,32 @@ class chupiTest extends TestCase
         $this->assertEquals('', $randomWordSearch(), 'Existe un CoolWord');
         $this->assertFalse($wordRepository->allWasCalled(),'Se llamó el allWasCalled');
     }
+
+    /**
+     * @test
+     */
+    public function shouldbeColorValidSpy()
+    {
+        $colorRepository = new ColorRepositoryValidSpy();
+        $randomWordSearch = new RandomColorSearcher($colorRepository);
+
+        $this->assertEquals('red', $randomWordSearch(), 'el Color es diferente');
+        $this->assertTrue($colorRepository->allWasCalled(),'No se llamó el allWasCalled');
+    }
+
+    /**
+     * @test
+     */
+    public function shouldThrowExceptionColorEmptyInvalidSpy()
+    {
+        $this->expectException(EmptyColorException::class);
+
+        $colorRepository = new ColorRepositoryInvalidSpy();
+        $randomColorSearch = new RandomColorSearcher($colorRepository);
+
+        $this->assertEquals('', $randomColorSearch(), 'El arreglo de Color no está vacío');
+        $this->assertFalse($colorRepository->allWasCalled(),'Se llamó el allWasCalled');
+    }
+
+
 }

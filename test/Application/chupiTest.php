@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace Practica4Test\Application;
 
 
+use LaSalle\ChupiProject\Module\Color\Application\ColorBuilder;
+use LaSalle\ChupiProject\Module\Color\Application\Factory;
+use LaSalle\ChupiProject\Module\Color\Domain\Color;
 use LaSalle\ChupiProject\Module\Color\Domain\Exceptions\EmptyCoolWordException;
 use PHPUnit\Framework\TestCase;
 use LaSalle\ChupiProject\Module\Color\Domain\Exceptions\EmptyColorException;
@@ -132,5 +135,15 @@ class chupiTest extends TestCase
         $this->assertFalse($colorRepository->allWasCalled(),'Se llamó el allWasCalled');
     }
 
+    /**
+     * @test
+     */
+    public function shouldbeColorFluentBuilder()
+    {
+        $colorRepository = new InMemoryColorRepository();
+        $newColor = (new ColorBuilder())->random($colorRepository->all())->build();
+
+        $this->assertInstanceOf(Color::class, $newColor);
+    }
 
 }

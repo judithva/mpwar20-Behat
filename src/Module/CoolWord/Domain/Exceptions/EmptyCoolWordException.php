@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace LaSalle\ChupiProject\Module\Color\Domain\Exceptions;
+namespace LaSalle\ChupiProject\Module\CoolWord\Domain\Exceptions;
 
 
 use DomainException;

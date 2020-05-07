@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace LaSalle\ChupiProject\Module\CoolWord\Domain;
 
 
-use LaSalle\ChupiProject\Module\Color\Domain\Exceptions\EmptyCoolWordException;
+use LaSalle\ChupiProject\Module\CoolWord\Domain\Exceptions\EmptyCoolWordException;
 use LaSalle\ChupiProject\Module\CoolWord\Application\CoolWordBuilder;
 
 

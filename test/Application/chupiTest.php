@@ -8,7 +8,7 @@ namespace Practica4Test\Application;
 use LaSalle\ChupiProject\Module\Color\Application\ColorBuilder;
 use LaSalle\ChupiProject\Module\Color\Application\Factory;
 use LaSalle\ChupiProject\Module\Color\Domain\Color;
-use LaSalle\ChupiProject\Module\Color\Domain\Exceptions\EmptyCoolWordException;
+use LaSalle\ChupiProject\Module\CoolWord\Domain\Exceptions\EmptyCoolWordException;
 use LaSalle\ChupiProject\Module\CoolWord\Application\CoolWordBuilder;
 use LaSalle\ChupiProject\Module\CoolWord\Domain\CoolWord;
 use PHPUnit\Framework\TestCase;

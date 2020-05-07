@@ -1,9 +1,13 @@
 <?php
+
 declare(strict_types=1);
 
 namespace LaSalle\ChupiProject\Module\CoolWord\Domain;
 
+
 use LaSalle\ChupiProject\Module\Color\Domain\Exceptions\EmptyCoolWordException;
+use LaSalle\ChupiProject\Module\CoolWord\Application\CoolWordBuilder;
+
 
 final class RandomCoolWordSearcher
 {
@@ -22,6 +26,6 @@ final class RandomCoolWordSearcher
             throw new EmptyCoolWordException();
         }
 
-        return $words[mt_rand(0, count($words) - 1)];
+        return (new CoolWordBuilder())->random($words)->__toString();
     }
 }

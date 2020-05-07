@@ -9,6 +9,8 @@ use LaSalle\ChupiProject\Module\Color\Application\ColorBuilder;
 use LaSalle\ChupiProject\Module\Color\Application\Factory;
 use LaSalle\ChupiProject\Module\Color\Domain\Color;
 use LaSalle\ChupiProject\Module\Color\Domain\Exceptions\EmptyCoolWordException;
+use LaSalle\ChupiProject\Module\CoolWord\Application\CoolWordBuilder;
+use LaSalle\ChupiProject\Module\CoolWord\Domain\CoolWord;
 use PHPUnit\Framework\TestCase;
 use LaSalle\ChupiProject\Module\Color\Domain\Exceptions\EmptyColorException;
 use LaSalle\ChupiProject\Module\Color\Domain\RandomColorSearcher;
@@ -146,4 +148,14 @@ class chupiTest extends TestCase
         $this->assertInstanceOf(Color::class, $newColor);
     }
 
+    /**
+     * @test
+     */
+    public function shouldbeCoolWordFluentBuilder()
+    {
+        $coolWordRepository = new InMemoryCoolWordRepository();
+        $newCoolWord = (new CoolWordBuilder())->random($coolWordRepository->all())->build();
+
+        $this->assertInstanceOf(CoolWord::class, $newCoolWord);
+    }
 }

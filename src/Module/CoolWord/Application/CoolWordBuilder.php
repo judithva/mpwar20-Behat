@@ -17,7 +17,7 @@ final class CoolWordBuilder
         return $this->coolWordString;
     }
 
-    public function build(): Color
+    public function build(): CoolWord
     {
         return new CoolWord($this->coolWordString);
     }

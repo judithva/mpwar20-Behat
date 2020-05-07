@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace LaSalle\ChupiProject\Module\CoolWord\Infrastructure;
 
 use LaSalle\ChupiProject\Module\CoolWord\Domain\CoolWordRepository;
-use LaSalle\ChupiProject\Module\CoolWord\Domain\Model\ValueObject\CoolWordValueObject;
 
 final class InMemoryCoolWordRepository implements CoolWordRepository
 {
@@ -18,10 +17,5 @@ final class InMemoryCoolWordRepository implements CoolWordRepository
             'Holiiiiii',
             'Besiis'
         ];
-
-        //$coolWordValueObject = new CoolWordValueObject();
-        //return $coolWordValueObject::generate();
-        //return $coolWordValueObject->all();
-        //return $coolWordValueObject::$coolWord;
     }
 }

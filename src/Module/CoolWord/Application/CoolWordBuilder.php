@@ -2,29 +2,29 @@
 
 declare(strict_types=1);
 
+namespace LaSalle\ChupiProject\Module\CoolWord\Application;
 
-namespace LaSalle\ChupiProject\Module\Color\Application;
+
+use LaSalle\ChupiProject\Module\CoolWord\Domain\CoolWord;
 
 
-use LaSalle\ChupiProject\Module\Color\Domain\Color;
-
-final class ColorBuilder
+final class CoolWordBuilder
 {
-    private $colorString;
+    private $coolWordString;
 
     public function __toString(): string
     {
-        return $this->colorString;
+        return $this->coolWordString;
     }
 
     public function build(): Color
     {
-        return new Color($this->colorString);
+        return new CoolWord($this->coolWordString);
     }
 
-    public function random(array $colorsArray): self
+    public function random(array $coolWordsArray): self
     {
-        $this->colorString = $colorsArray[mt_rand(0, count($colorsArray) - 1)];
+        $this->coolWordString = $coolWordsArray[mt_rand(0, count($coolWordsArray) - 1)];
         return $this;
     }
 }

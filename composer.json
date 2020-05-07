@@ -11,5 +11,8 @@
             "LaSalle\\ChupiProject\\": "src/",
             "Practica4Test\\": "test/"
         }
+    },
+    "require-dev": {
+        "behat/behat": "^3.6"
     }
 }

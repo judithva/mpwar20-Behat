@@ -5,9 +5,8 @@ declare(strict_types=1);
 namespace Practica4Test\Application;
 
 
+use Colors\Color;
 use LaSalle\ChupiProject\Module\Color\Application\ColorBuilder;
-use LaSalle\ChupiProject\Module\Color\Application\Factory;
-use LaSalle\ChupiProject\Module\Color\Domain\Color;
 use LaSalle\ChupiProject\Module\CoolWord\Domain\Exceptions\EmptyCoolWordException;
 use LaSalle\ChupiProject\Module\CoolWord\Application\CoolWordBuilder;
 use LaSalle\ChupiProject\Module\CoolWord\Domain\CoolWord;

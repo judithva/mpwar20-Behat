@@ -3,7 +3,10 @@ declare(strict_types=1);
 
 namespace LaSalle\ChupiProject\Module\CoolWord\Domain;
 
+
 interface CoolWordRepository
 {
     public function all(): array;
+
+    public function get(array $coolWords): CoolWord;
 }

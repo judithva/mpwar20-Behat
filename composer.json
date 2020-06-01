@@ -5,7 +5,8 @@
         "php": "^7.2",
         "kevinlebrun/colors.php": "^1.0",
         "phpunit/phpunit": "^9.1",
-        "guzzlehttp/guzzle": "^6.5"
+        "guzzlehttp/guzzle": "^6.5",
+        "ext-json": "*"
     },
     "autoload": {
         "psr-4": {

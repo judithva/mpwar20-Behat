@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace LaSalle\ChupiProject\Module\Color\Domain;
 
-use LaSalle\ChupiProject\Module\Color\Application\ColorBuilder;
 use LaSalle\ChupiProject\Module\Color\Domain\Exceptions\EmptyColorException;
 
 final class RandomColorSearcher
@@ -24,6 +23,6 @@ final class RandomColorSearcher
             throw new EmptyColorException();
         }
 
-        return (new ColorBuilder())->random($colors)->__toString();
+        return $colors[mt_rand(0, count($colors) - 1)];
     }
 }

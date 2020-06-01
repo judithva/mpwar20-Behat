@@ -6,7 +6,6 @@ namespace LaSalle\ChupiProject\Module\CoolWord\Domain;
 
 
 use LaSalle\ChupiProject\Module\CoolWord\Domain\Exceptions\EmptyCoolWordException;
-use LaSalle\ChupiProject\Module\CoolWord\Application\CoolWordBuilder;
 
 
 final class RandomCoolWordSearcher
@@ -26,6 +25,6 @@ final class RandomCoolWordSearcher
             throw new EmptyCoolWordException();
         }
 
-        return (new CoolWordBuilder())->random($words)->__toString();
+        return  $words[mt_rand(0, count($words) - 1)];
     }
 }

@@ -28,6 +28,8 @@ final class GetARandomPhrase
         $aRandomWord = new GetARandomWord($this->wordRepository);
         $aRandomColorExcept = new RandomColorExcept($aRandomColor()->type(), $aRandomColor);
 
-        return  new GetARandomPhraseResponse([$aRandomColor()->type(), $aRandomWord()->type(), $aRandomColorExcept()]);
+        return  new GetARandomPhraseResponse(["color" => $aRandomColor()->type(),
+                                              "word"  => $aRandomWord()->type(),
+                                              "fgcolor" => $aRandomColorExcept()]);
     }
 }

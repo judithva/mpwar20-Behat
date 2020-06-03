@@ -70,8 +70,8 @@ class FeatureContext implements Context
      */
     public function theWORDResponseShouldBe(PyStringNode $be)
     {
-        $expectedWord = $this->content;
-        assertTrue(in_array($expectedWord, $be->getStrings()), 'La palabra no esta contenida en la lista');
+        $actualWord = $this->content;
+        assertTrue(in_array($actualWord, $be->getStrings()), 'La palabra no esta contenida en la lista');
     }
 
     /**

@@ -1,5 +1,6 @@
-Feature: Random coolWord api test
-  Scenario: Get a random color
+Feature: Random coolWord Api test
+
+  Scenario: Check the Api status
     Given I do a GET request a "/v1/word"
     Then the response code should be "200"
     And the WORD response should be:
@@ -12,4 +13,3 @@ Feature: Random coolWord api test
      Holiiiiii
      Besiis
      """
-

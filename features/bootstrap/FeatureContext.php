@@ -63,4 +63,13 @@ class FeatureContext implements Context
         $expectedColor = $this->content;
         assertTrue(in_array($expectedColor, $be->getStrings()), 'El color no esta contenido en la lista');
     }
+
+    /**
+     * @Then the WORD response should be:
+     */
+    public function theWORDResponseShouldBe(PyStringNode $be)
+    {
+        $expectedWord = $this->content;
+        assertTrue(in_array($expectedWord, $be->getStrings()), 'La palabra no esta contenida en la lista');
+    }
 }

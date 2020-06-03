@@ -18,12 +18,6 @@ final class GetARandomColorController
 
     public function __invoke(): string
     {
-        /*$colors = $this->colorRepository->all();
-        if(empty($colors)) {
-            throw new EmptyColorException();
-        }
-        return $colors[mt_rand(0, count($colors) - 1)];*/
-
         $getARandomColor = new GetARandomColor($this->colorRepository);
         return $getARandomColor()->type();
     }

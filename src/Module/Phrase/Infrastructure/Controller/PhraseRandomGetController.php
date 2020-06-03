@@ -24,10 +24,6 @@ final class PhraseRandomGetController
 
     public function __invoke(): array
     {
-        /*$aRandomColor = new GetARandomColor(new InMemoryColorRepository());
-        $aRandomWord = new GetARandomWord(new InMemoryCoolWordRepository());
-        return [$aRandomColor()->type(), $aRandomWord()->type(), 'fgcolor'];*/
-
         $aRandomPhrase = new GetARandomPhrase($this->colorRepository, $this->wordRepository);
         return $aRandomPhrase()->type();
     }

@@ -18,12 +18,6 @@ final class GetARandomWordController
 
     public function __invoke(): string
     {
-        /*$words = $this->wordRepository->all();
-        if (empty($words)) {
-            throw new EmptyCoolWordException();
-        }
-        return  $words[mt_rand(0, count($words) - 1)];*/
-
         $wordRandomGet = new GetARandomWord($this->wordRepository);
         return $wordRandomGet()->type();
     }

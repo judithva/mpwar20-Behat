@@ -61,8 +61,8 @@ class FeatureContext implements Context
      */
     public function theResponseShouldBe(PyStringNode $be)
     {
-        $expectedColor = $this->content;
-        assertTrue(in_array($expectedColor, $be->getStrings()), 'El color no esta contenido en la lista');
+        $actualColor = $this->content;
+        assertTrue(in_array($actualColor, $be->getStrings()), 'El color no esta contenido en la lista');
     }
 
     /**

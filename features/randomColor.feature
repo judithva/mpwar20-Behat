@@ -1,5 +1,6 @@
-Feature: Random color api test
-  Scenario: Get a random color
+Feature: Random color Api test
+
+  Scenario: Check the Api status
     Given I do a GET request a "/v1/color"
     Then the response code should be "200"
     And the COLOR response should be:
@@ -14,4 +15,3 @@ Feature: Random color api test
      blue
      light_gray
      """
-

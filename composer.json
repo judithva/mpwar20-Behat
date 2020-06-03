@@ -15,6 +15,7 @@
         }
     },
     "require-dev": {
-        "behat/behat": "^3.6"
+        "behat/behat": "^3.6",
+        "imbo/behat-api-extension": "^2.3"
     }
 }

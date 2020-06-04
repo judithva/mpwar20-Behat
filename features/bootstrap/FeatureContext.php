@@ -113,7 +113,7 @@ final class FeatureContext implements Context
      */
     public function iCallAColorController()
     {
-        $this->colorController = new GetARandomColorController($this->colorRepository);
+        $this->colorController = new GetARandomColorController();
     }
 
     /**
@@ -129,7 +129,7 @@ final class FeatureContext implements Context
      */
     public function iCallAWordController()
     {
-        $this->wordController = new GetARandomWordController($this->wordRepository);
+        $this->wordController = new GetARandomWordController();
     }
 
     /**

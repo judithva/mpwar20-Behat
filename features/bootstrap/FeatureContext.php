@@ -1,9 +1,12 @@
 <?php
+declare(strict_types=1);
 
 use Behat\Behat\Context\Context;
 use Behat\Gherkin\Node\PyStringNode;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
+use LaSalle\ChupiProject\Module\Color\Infrastructure\InMemoryColorRepository;
+use LaSalle\ChupiProject\Module\Color\Infrastructure\Controller\GetARandomColorController;
 
 use function PHPUnit\Framework\assertTrue;
 use function PHPUnit\Framework\assertEquals;
@@ -11,7 +14,7 @@ use function PHPUnit\Framework\assertEquals;
 /**
  * Defines application features from the specific context.
  */
-class FeatureContext implements Context
+final class FeatureContext implements Context
 {
     /**
      * Initializes context.
@@ -24,10 +27,13 @@ class FeatureContext implements Context
     private $code;
     private $response;
     private $content;
+    private $colorRepository;
+    private $colorController;
 
     public function __construct()
     {
         $this->client = new Client(['base_uri' => 'http://localhost:8088/']);
+        $this->colorRepository = new InMemoryColorRepository();
     }
 
     /**
@@ -94,4 +100,21 @@ class FeatureContext implements Context
 
         assertEquals($actualResponse, $expectedResponse, 'El JSON no tiene la estructura esperada');
     }
+
+    /**
+     * @When I call a Color controller
+     */
+    public function iCallAColorController()
+    {
+        $this->colorController = new GetARandomColorController($this->colorRepository);
+    }
+
+    /**
+     * @Then /^the response body contains a color$/
+     */
+    public function theResponseBodyContainsAColor()
+    {
+        echo $this->colorController->__invoke();
+    }
+
 }

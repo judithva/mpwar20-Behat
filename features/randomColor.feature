@@ -15,3 +15,7 @@ Feature: Random color Api test
      blue
      light_gray
      """
+  Scenario: Get a random color
+    When I call a Color controller
+    Then the response body contains a color
+    

@@ -7,6 +7,8 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use LaSalle\ChupiProject\Module\Color\Infrastructure\InMemoryColorRepository;
 use LaSalle\ChupiProject\Module\Color\Infrastructure\Controller\GetARandomColorController;
+use LaSalle\ChupiProject\Module\CoolWord\Infrastructure\InMemoryCoolWordRepository;
+use LaSalle\ChupiProject\Module\CoolWord\Infrastructure\Controller\GetARandomWordController;
 
 use function PHPUnit\Framework\assertTrue;
 use function PHPUnit\Framework\assertEquals;
@@ -29,11 +31,14 @@ final class FeatureContext implements Context
     private $content;
     private $colorRepository;
     private $colorController;
+    private $wordRepository;
+    private $wordController;
 
     public function __construct()
     {
         $this->client = new Client(['base_uri' => 'http://localhost:8088/']);
         $this->colorRepository = new InMemoryColorRepository();
+        $this->wordRepository = new InMemoryCoolWordRepository();
     }
 
     /**
@@ -110,11 +115,27 @@ final class FeatureContext implements Context
     }
 
     /**
-     * @Then /^the response body contains a color$/
+     * @Then the response body contains a color
      */
     public function theResponseBodyContainsAColor()
     {
         echo $this->colorController->__invoke();
+    }
+
+    /**
+     * @When I call a Word controller
+     */
+    public function iCallAWordController()
+    {
+        $this->wordController = new GetARandomWordController($this->wordRepository);
+    }
+
+    /**
+     * @Then /^the response body contains a word$/
+     */
+    public function theResponseBodyContainsAWord()
+    {
+        echo $this->wordController->__invoke();
     }
 
 }

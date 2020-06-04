@@ -13,3 +13,6 @@ Feature: Random coolWord Api test
      Holiiiiii
      Besiis
      """
+  Scenario: Get a random word
+    When I call a Word controller
+    Then the response body contains a word

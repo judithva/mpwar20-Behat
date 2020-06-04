@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+namespace Practica4Test\Acceptance;
+
 use Behat\Behat\Context\Context;
 use Behat\Gherkin\Node\PyStringNode;
 use GuzzleHttp\Client;

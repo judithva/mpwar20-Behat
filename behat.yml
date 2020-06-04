@@ -1,4 +1,21 @@
 default:
+  suites:
+    color:
+      paths:
+        - '%paths.base%/test/Acceptance/Color'
+      contexts:
+        - Practica4Test\Acceptance\FeatureContext
+    word:
+      paths:
+        - '%paths.base%/test/Acceptance/CoolWord'
+      contexts:
+        - Practica4Test\Acceptance\FeatureContext
+    phrase:
+      paths:
+        - '%paths.base%/test/Acceptance/Phrase'
+      contexts:
+        - Practica4Test\Acceptance\FeatureContext
+
   extensions:
     Imbo\BehatApiExtension:
       apiClient:

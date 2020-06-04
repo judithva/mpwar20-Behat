@@ -8,7 +8,7 @@ use LaSalle\ChupiProject\Module\Phrase\Infrastructure\Controller\GetARandomPhras
 require (__DIR__.'/../vendor/autoload.php');
 
 const END_POINT_COLOR  = '/v1/color';         // Color => /v1/color
-const END_POINT_WORD   = '/v1/word';          // Word => /v1/word
+const END_POINT_WORD   = '/v1/word';          // CoolWord => /v1/word
 const END_POINT_PHRASE = '/v1/phrase';        // Json => /v1/phrase
 
 //echo  'URI=',$_SERVER["REQUEST_URI"] , "<br>";

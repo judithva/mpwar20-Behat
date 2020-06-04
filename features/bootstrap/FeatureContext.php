@@ -9,6 +9,7 @@ use LaSalle\ChupiProject\Module\Color\Infrastructure\InMemoryColorRepository;
 use LaSalle\ChupiProject\Module\Color\Infrastructure\Controller\GetARandomColorController;
 use LaSalle\ChupiProject\Module\CoolWord\Infrastructure\InMemoryCoolWordRepository;
 use LaSalle\ChupiProject\Module\CoolWord\Infrastructure\Controller\GetARandomWordController;
+use LaSalle\ChupiProject\Module\Phrase\Infrastructure\Controller\GetARandomPhraseController;
 
 use function PHPUnit\Framework\assertTrue;
 use function PHPUnit\Framework\assertEquals;
@@ -33,6 +34,7 @@ final class FeatureContext implements Context
     private $colorController;
     private $wordRepository;
     private $wordController;
+    private $phraseController;
 
     public function __construct()
     {
@@ -136,6 +138,23 @@ final class FeatureContext implements Context
     public function theResponseBodyContainsAWord()
     {
         echo $this->wordController->__invoke();
+    }
+
+    /**
+     * @When /^I call a Phrase controller$/
+     */
+    public function iCallAPhraseController()
+    {
+        $this->phraseController = new GetARandomPhraseController();
+    }
+
+    /**
+     * @Then /^the response body contains a JSON$/
+     */
+    public function theResponseBodyContainsAJSON()
+    {
+        header('Content-Type: application/json');
+        echo json_encode($this->phraseController->__invoke());
     }
 
 }

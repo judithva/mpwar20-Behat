@@ -11,3 +11,6 @@ Feature: Random phrase Api test
       "fgcolor":"yellow"
     }
     """
+  Scenario: Get a random phrase
+    When I call a Phrase controller
+    Then the response body contains a JSON

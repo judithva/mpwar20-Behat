@@ -11,7 +11,7 @@ use LaSalle\ChupiProject\Module\Color\Application\GetARandomColor;
 use LaSalle\ChupiProject\Module\CoolWord\Application\GetARandomWord;
 use Practica4\Module\Color\Application\RandomColorExcept;
 
-final class PhraseRandomGetController
+final class GetARandomPhraseController
 {
     private $colorRepository;
     private $wordRepository;

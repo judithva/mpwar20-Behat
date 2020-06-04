@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 use LaSalle\ChupiProject\Module\Color\Infrastructure\Controller\GetARandomColorController;
 use LaSalle\ChupiProject\Module\CoolWord\Infrastructure\Controller\GetARandomWordController;
-use LaSalle\ChupiProject\Module\Phrase\Infrastructure\Controller\PhraseRandomGetController;
+use LaSalle\ChupiProject\Module\Phrase\Infrastructure\Controller\GetARandomPhraseController;
 
 require (__DIR__.'/../vendor/autoload.php');
 
@@ -61,7 +61,7 @@ function getRandomWord(): void
 function getRandomPhrase(): void
 {
     try {
-        $phraseController = new PhraseRandomGetController();
+        $phraseController = new GetARandomPhraseController();
         header('Content-Type: application/json');
         echo json_encode($phraseController());
 

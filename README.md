@@ -5,14 +5,27 @@
 En cada ejecución de los End Points se obtendrá:
 
   Un color aleatorio
-  http://localhost:8088/v1/color
+  http://localhost:8080/v1/color  ó  http://IPlocal:8080/v1/color 
   
   Una palabra aleatoria
-  http://localhost:8088/v1/word
+  http://localhost:8080/v1/word   ó  http://IPlocal:8080/v1/word 
   
   Una frase molona
-  http://localhost:8088/v1/phrase
-  
+  http://localhost:8080/v1/phrase  ó  http://IPlocal:8080/v1/phrase
+
+# Iniciar contenedor
+Para poner en marcha Chupi project, previamente se ha de tener instalado [Docker](https://www.docker.com/get-started) y 
+realizar los siguientes pasos:
+    
+    * Levantar el servidor:        
+        sudo docker-compose up -d
+    * Para saber el nombre de nuestro contenedor en PHP:
+        sudo docker ps -a     
+    * Para entrar en nuestro contenedor de PHP:
+        sudo docker exec -it behatjudithvilela_php-fpm_1 bash
+    * Para ejecutar los tests desde consola:
+        vendor/bin/behat 
+
 
 # Tests
 Estructura de los test implementados con Behat:

@@ -40,7 +40,7 @@ final class FeatureContext implements Context
 
     public function __construct()
     {
-        $this->client = new Client(['base_uri' => 'http://localhost:8088/']);
+        $this->client = new Client(['base_uri' => 'http://nginx']);
         $this->colorRepository = new InMemoryColorRepository();
         $this->wordRepository = new InMemoryCoolWordRepository();
     }

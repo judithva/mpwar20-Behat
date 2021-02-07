@@ -23,6 +23,10 @@ realizar los siguientes pasos:
         sudo docker ps -a     
     * Para entrar en nuestro contenedor de PHP:
         sudo docker exec -it behatjudithvilela_php-fpm_1 bash
+      Ó ejecutar el makefile:
+        sudo make interactive
+    * Instalar las dependencias:
+        composer install  
     * Para ejecutar los tests desde consola:
         vendor/bin/behat 
 
